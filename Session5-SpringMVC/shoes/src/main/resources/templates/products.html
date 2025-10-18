@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>LIST OF PRODUCT:</title>
+
+</head>
+<body>
+<script th:if="${formMgs}" th:inline="javascript">
+    window.addEventListener('load', function() {
+        // Thymeleaf sẽ render thành: alert("…");
+        alert([[${formMgs}]]);
+    });
+</script>
+<h1> WELCOME SHOES SYSTEM-ADMIN MODULE</h1>
+<h2 th:text="${key}"></h2>
+<!--không can gợi í vì nó k chính chủ-->
+<h1 th:if="${formMgs}" th:text="'STATUS:'+${formMgs}"></h1>
+<h1  th:if="${forMgs}"th:text="'PRODUCT Name:'+${pname}"></h1>
+<h2>The list of Producst</h2>
+<table>
+    <thead>
+       <th>ID</th>
+       <th>Name</th>
+        <th>Price</th>
+        <th>Action(UPDATE/DELETE)</th>
+    </thead>
+    <tbody>
+          <tr th:each=" x : ${key2}">
+              <td th:text="${x.id}"></td>
+              <td th:text="${x.name}"></td>
+              <td th:text="${x.price}"></td>
+
+              <td>
+                  <a th:href="@{'/key2/edit/'+ ${x.id}}">Update</a>
+                  <a th:href="@{'/key2/delete/'+ ${x.id}}">Delete</a>
+              </td>
+          </tr>
+    </tbody>
+</table>
+</body>
+</html>

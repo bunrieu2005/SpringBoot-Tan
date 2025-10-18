@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create ,Update coffe product</title>
+</head>
+<body>
+<h1> Create ,Update  List Shoes</h1>
+<!--CẦN 1 CAÁI FORM, ẤN NÚT SAVE THÌ LƯU TOÀN BỘ SẢN PHẨM VÀO Ô NHẬP LIỆU -->
+
+<h2 th:text=    "${key3.name}"></h2>
+<form th:action="@{/products/edit}" method="post">
+
+
+<p>
+    <label for ="id">Product id:</label>
+    <input type="text" name="id"th:value="${key3.id}" id="id"/>
+
+</p>
+<p>
+   <label for ="name">Product name:</label>
+       <input type="text" name="name"th:value="${key3.name}" id="name"/>
+
+</p>
+<p>
+    <label for ="price">Product price:</label>
+    <input type="text" name="price"th:value="${key3.price}" id="price"/>
+
+</p>
+    <p>
+        <button type="submit">SAVE</button>
+    </p>
+</form>
+
+</body>
+</html>
